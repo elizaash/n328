@@ -136,3 +136,31 @@ a:active {
   top: 100%;
   left: 0;
 }
+
+.content{
+  max-width: 700px;
+  margin-left: 20%;
+  line-height: 25px;
+  font-size: small;
+  padding-bottom: 7%;
+}
+.content p {
+  padding-bottom: 20px;
+  text-indent: 50px;
+}
+.content h2 {
+  line-height: 70px;
+  margin-left: 0px;
+
+}
+
+.content img { 
+  max-width: 600px;
+}
+
+
+iframe {
+  margin-top: 5%;
+
+
+}
