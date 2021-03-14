@@ -1,36 +1,92 @@
-#title { 
-  font-size: small;
-  margin-bottom: 50px;
+* {
+	margin: 0;
+	padding:0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+html, body {
+	height: 100%;
 }
 
 
-.chart {
-  background-color: white; 
-  border-radius: 25px;
-  width: 700px;
+.nav {
+  width: 100%;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color:#EDEFFF;
+}
+
+.nav li {
   float: left;
+}
+
+#navanchors  {
+  display: block;
+  color: #7F98F8;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.nav i a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  fill: tomato;
+}
+
+.body {
+  width : 80%; 
+  margin-left:auto; 
+  margin-right:auto; 
+  margin-top:2%; 
+  background-color: white;
+}
+
+#title { 
+  font-size: small;
+  margin-bottom: 50px;
+  background-color: white;
+}
+
+#titlephoto {
+  max-width: 300px ;
+  margin-left: 35%;
+  background-color: white;
+}
+
+#buttons {
+  max-width: 120px;
+  display: flex;
+  float:left;
+  background-color: white;
+}
+
+.chart {
+  border-radius: 25px;
+  float: left;
+  background-color: white; 
 }
 
 #chartTitle {
   margin-left: 50px;
 }
 
-.legend {
+
+#legend {
   width: 300px;
-  background-color: white;
+  height: 40%;
   border-radius: 10px;
   padding-left: 30px;
   font-size: small;
   float: right;
+  background-color: white;
 }
 
-body {
-    width : 80%; 
-    margin-left:auto; 
-    margin-right:auto; 
-    margin-top:5%; 
-    background-color: whitesmoke;
-}
+
 
 .d3-tip {
   line-height: 1;
