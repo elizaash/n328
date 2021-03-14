@@ -22,7 +22,7 @@ var svg = d3.select("#my_dataviz")
     var tool_tip = d3.tip()
       .attr("class", "d3-tip")
       .offset([-8, 0])
-      .html(function(d) { return "Manufacturer- " + full_name[d.manufacturer_name] + ";" + " Total Sugar = " + d.sugars + "gm"; });
+      .html(function(d) { return "Manufacturer- " + full_name[d.manufacturer_name] + ";" + " Total sodium = " + d.sodium + "mg"; });
     svg.call(tool_tip);
     
 // Initialize the X axis
@@ -39,24 +39,24 @@ var yAxis = svg.append("g")
   .attr("class", "myYaxis"); 
 
 var xLabel = svg.append("text")
-            .attr("x","50%")
+            .attr("x","35%")
             .attr("y", height+margin.bottom - 30)
             .attr("fill","black")
             .attr("stroke","black")
             .text("Manufacturers"); 
 
 var yLabel = svg.append("text")
-            .attr("transform", `translate(${-margin.left/2},${height/2}) rotate(-90)`)
+            .attr("transform", `translate(${-margin.left/1.5},${height/2}) rotate(-90)`)
             .attr("fill","black")
             .attr("stroke","black")
-            .text("Sugars in Grams"); 
+            .text("Sodium in Milligrams"); 
 
 // A function that create / update the plot for a given variable:
 function update() {
 
   // Parse the Data
   d3.csv("./data/cereal.csv", function(d){
-    return {mfr:d.mfr, sugars:+d.sugars}
+    return {mfr:d.mfr, sodium:+d.sodium}
   }, function(data) {
 
     var all_manufacturers = [... new Set(data.map(x => x.mfr))]; 
@@ -64,8 +64,8 @@ function update() {
     
 
     all_manufacturers.forEach(mf => {
-            var totalSugar = data.filter(d => d.mfr == mf).map(x => x.sugars).reduce((a,b) => a+b); 
-            all_obj.push({"manufacturer_name":mf, "sugars":totalSugar}); 
+            var totalsodium = data.filter(d => d.mfr == mf).map(x => x.sodium).reduce((a,b) => a+b); 
+            all_obj.push({"manufacturer_name":mf, "sodium":totalsodium}); 
     }); 
 
 
@@ -74,7 +74,7 @@ function update() {
     xAxis.transition().duration(1000).call(d3.axisBottom(x))
 
     // Add Y axis
-    y.domain([0, d3.max(all_obj, function(d) { return d.sugars}) ]);
+    y.domain([0, d3.max(all_obj, function(d) { return d.sodium}) ]);
     yAxis.transition().duration(1000).call(d3.axisLeft(y));
 
     // variable u: map data to existing bars
@@ -91,10 +91,10 @@ function update() {
       .transition()
       .duration(1000)
         .attr("x", function(d) { return x(d.manufacturer_name); })
-        .attr("y", function(d) { return y(d.sugars); })
+        .attr("y", function(d) { return y(d.sodium); })
         .attr("width", x.bandwidth())
-        .attr("height", function(d) { return height - y(d.sugars); })
-        .attr("fill", "#5b8ba1")
+        .attr("height", function(d) { return height - y(d.sodium); })
+        .attr("fill", "#F69078")
     
   })
 

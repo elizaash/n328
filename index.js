@@ -39,7 +39,7 @@ var yAxis = svg.append("g")
   .attr("class", "myYaxis"); 
 
 var xLabel = svg.append("text")
-            .attr("x","50%")
+            .attr("x","35%")
             .attr("y", height+margin.bottom - 30)
             .attr("fill","black")
             .attr("stroke","black")
@@ -49,7 +49,7 @@ var yLabel = svg.append("text")
             .attr("transform", `translate(${-margin.left/2},${height/2}) rotate(-90)`)
             .attr("fill","black")
             .attr("stroke","black")
-            .text("Sugars in Grams"); 
+            .text("Sugar in Grams"); 
 
 // A function that create / update the plot for a given variable:
 function update() {
@@ -94,7 +94,7 @@ function update() {
         .attr("y", function(d) { return y(d.sugars); })
         .attr("width", x.bandwidth())
         .attr("height", function(d) { return height - y(d.sugars); })
-        .attr("fill", "#5b8ba1")
+        .attr("fill", "#7F98F8")
     
   })
 
